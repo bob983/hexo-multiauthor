@@ -14,11 +14,12 @@ gulp.task('coverage:clean', function(callback){
     rirmaf('coverage', callback);
 });
 
-gulp.task('mocha', function(){
+gulp.task('mocha', ['coverage'], function(){
     return gulp.src('test/index.js')
         .pipe($.mocha({
             reporter: 'spec'
-        }));
+        }))
+        .pipe($.istanbul.writeReports());
 });
 
 gulp.task('jshint', function(){
