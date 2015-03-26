@@ -1,7 +1,7 @@
 var Hexo = require('hexo');
 var assert = require("assert");
 var hexo = new Hexo(__dirname, {silent: true});
-var Author = hexo.model('author');
+var Author = hexo.model('Author');
 
 describe('Filter', function () {
     var filter = require('../lib/filter').bind(hexo);
@@ -12,20 +12,20 @@ describe('Filter', function () {
         ]);
     });
 
-    it('should replace author code with author object', function () {
-        var testPost = {author : 'ABC'};
+    it('should add author object', function () {
+        var testPost = {authorId : 'ABC'};
         var filteredPost = filter(testPost);
         assert.equal(filteredPost.author.name, 'AaBbCc');
         assert.equal(filteredPost.author.id, 'ABC');
     });
 
-    it('should remove author if not found in model', function() {
-        var testPost = {author : 'XYZ'};
+    it('should bypass if author not found in model', function() {
+        var testPost = {authorId : 'XYZ'};
         var filteredPost = filter(testPost);
         assert.equal(filteredPost.author, null);
     });
 
-    it('should bypass filter is there is no auther in the post', function() {
+    it('should bypass filter is there is no author in the post', function() {
         var testPost = {};
         var filteredPost = filter(testPost);
         assert.equal(filteredPost, testPost);
