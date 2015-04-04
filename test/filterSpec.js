@@ -3,8 +3,8 @@ var assert = require("assert");
 var hexo = new Hexo(__dirname, {silent: true});
 var Author = hexo.model('Author');
 
-describe('Filter', function () {
-    var filter = require('../lib/filter').bind(hexo);
+describe('Post filter', function () {
+    var filter = require('../lib/filters/add-author-to-post').bind(hexo);
 
     before(function () {
         return Author.insert([
@@ -29,6 +29,16 @@ describe('Filter', function () {
         var testPost = {};
         var filteredPost = filter(testPost);
         assert.equal(filteredPost, testPost);
+    });
+});
+
+
+describe('Locals filter', function () {
+    var filter = require('../lib/filters/add-author-to-locals').bind(hexo);
+
+    it('should add author flog to local', function () {
+        var filteredLocals = filter({});
+        assert.equal(filteredLocals.author, true);
     });
 });
 
