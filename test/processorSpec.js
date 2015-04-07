@@ -5,7 +5,7 @@ var Promise = require('bluebird');
 var fs = require('hexo-fs');
 
 var hexo = new Hexo(__dirname, {silent: true});
-var Author = hexo.model('author');
+var Author = hexo.model('Author');
 
 describe('Processor', function () {
 
