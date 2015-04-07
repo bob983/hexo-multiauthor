@@ -32,13 +32,3 @@ describe('Post filter', function () {
     });
 });
 
-
-describe('Locals filter', function () {
-    var filter = require('../lib/filters/add-author-to-locals').bind(hexo);
-
-    it('should add author flog to local', function () {
-        var filteredLocals = filter({});
-        assert.equal(filteredLocals.author, true);
-    });
-});
-
