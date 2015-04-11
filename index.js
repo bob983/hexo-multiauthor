@@ -2,8 +2,6 @@
 
 // Model
 hexo.database.model('Author', require('./lib/model-author'));
-hexo.database.model('PostAuthor', require('./lib/model-post-author'));
-
 
 //Processor - to load and parse authors
 hexo.extend.processor.register('_authors/*.yml', require('./lib/processor'));
