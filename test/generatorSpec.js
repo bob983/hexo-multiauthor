@@ -16,8 +16,8 @@ describe('Generator', function () {
             {id: 'ABC', name: 'AaBbCc', source: 'blah'}
         );
         var postPromise = Post.insert([
-                {id: 'ABC1', name: 'AaBbCc', source: 'blah', slug: 'blah', authorId: 'ABC'},
-                {id: 'ABC2', name: 'AaBbCc', source: 'blah', slug: 'blah', authorId: 'ABC'}
+                {id: 'ABC1', name: 'AaBbCc', source: 'blah', slug: 'blah', authorId: 'ABC', date: new Date(2014, 1, 2)},
+                {id: 'ABC2', name: 'AaBbCc', source: 'blah', slug: 'blah', authorId: 'ABC', date: new Date(2014, 1, 3)}
             ]
         );
         return Promise.all([authorPromise, postPromise]).then(function () {
@@ -28,6 +28,17 @@ describe('Generator', function () {
     it('should group posts by author', function () {
         var content = generator();
         assert.equal(content.length, 1);
+        var authorPage = content[0];
+
+        assert.equal('author/ABC/', authorPage.path);
+        assert.equal('index', authorPage.layout);
+
+        var posts = authorPage.data.posts.data;
+        assert.equal(2, posts.length);
+
+        assert.equal('ABC2', posts[0].id);
+        assert.equal('ABC1', posts[1].id);
+
     });
 
 
