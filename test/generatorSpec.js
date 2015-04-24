@@ -13,7 +13,7 @@ describe('Generator', function () {
 
     before(function () {
         var authorPromise = Author.insert(
-            {id: 'ABC', name: 'AaBbCc', source: 'blah'}
+            {id: 'ABC', name: 'Karel', source: 'blah'}
         );
         var postPromise = Post.insert([
                 {id: 'ABC1', name: 'AaBbCc', source: 'blah', slug: 'blah', authorId: 'ABC', date: new Date(2014, 1, 2)},
@@ -31,14 +31,20 @@ describe('Generator', function () {
         var authorPage = content[0];
 
         assert.equal('author/ABC/', authorPage.path);
-        assert.equal('index', authorPage.layout);
+        assert.deepEqual(['author', 'index'], authorPage.layout);
 
         var posts = authorPage.data.posts.data;
         assert.equal(2, posts.length);
 
         assert.equal('ABC2', posts[0].id);
         assert.equal('ABC1', posts[1].id);
+    });
 
+    it('should add author data to each page', function () {
+        var content = generator();
+        assert.equal(content.length, 1);
+        var data = content[0].data;
+        assert.equal('Karel', data.author.name)
     });
 
 
