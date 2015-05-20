@@ -7,7 +7,7 @@
 
 ## Description
  
-This plugin adds support for multiple authors. You can add author to a post by adding `authorId` to frontmatter.
+This plugin adds support for multiple authors. You can add author to a post by adding `authorId` to frontmatter. You can see it in action at http://blog.cngroup.dk. It uses modified `twbootstrap` template.
  
 
     title: Sample post
