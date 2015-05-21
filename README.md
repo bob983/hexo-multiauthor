@@ -6,6 +6,8 @@
 [![npm version](https://badge.fury.io/js/hexo-multiauthor.svg)](http://badge.fury.io/js/hexo-multiauthor)
 
 ## Description
+
+Tested wit Hexo 3.x
  
 This plugin adds support for multiple authors. You can add author to a post by adding `authorId` to frontmatter. You can see it in action at http://blog.cngroup.dk. It uses modified `twbootstrap` template.
  
