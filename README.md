@@ -44,7 +44,6 @@ When the public content is generated, plugin will group posts by authors and gen
 	   <% } %>
 	<% } %> 
 
- 
+ ## Installation
 
-
-
+`npm i hexo-multiauthor --save`
