@@ -14,7 +14,7 @@
     "hexo-pagination": "^0.0.2",
     "js-yaml": "^3.2.5",
     "warehouse": "^1.0.0",
-    "bluebird": "^2.9.8",
+    "bluebird": "^3.7.2",
     "lodash": "^3.0.1"
   },
   "devDependencies": {
