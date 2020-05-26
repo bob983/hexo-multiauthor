@@ -10,7 +10,7 @@
     "test": "gulp test"
   },
   "dependencies": {
-    "hexo-fs": "^0.1.3",
+    "hexo-fs": "^3.1.0",
     "hexo-pagination": "^0.0.2",
     "js-yaml": "^3.2.5",
     "warehouse": "^1.0.0",
