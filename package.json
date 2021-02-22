@@ -15,7 +15,7 @@
     "js-yaml": "^3.2.5",
     "warehouse": "^1.0.0",
     "bluebird": "^2.9.8",
-    "lodash": "^3.0.1"
+    "lodash": "^4.17.21"
   },
   "devDependencies": {
     "coveralls": "^2.11.2",
